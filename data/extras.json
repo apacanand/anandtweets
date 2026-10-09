@@ -1,0 +1,13 @@
+{
+  "_example_tweet_id": {
+    "title": "Optional detail title",
+    "body": "Add extra context for a selected tweet here. Delete or replace this sample entry.",
+    "links": [
+      {
+        "label": "Related link",
+        "url": "https://example.com"
+      }
+    ],
+    "media": []
+  }
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@anand1512 tweet archive</title>
+  <link rel="icon" href="data:,">
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">X / Twitter archive</p>
+      <h1>@anand1512 timeline</h1>
+      <p id="archiveSummary" class="summary">Loading archive...</p>
+    </div>
+    <a class="primary-link" href="https://x.com/anand1512" rel="noopener noreferrer">Open profile</a>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Timeline controls">
+      <label class="search-label" for="searchInput">Search tweets</label>
+      <input id="searchInput" type="search" placeholder="Search text, links, hashtags, or mentions">
+      <div class="filter-row">
+        <label for="yearFilter">Year</label>
+        <select id="yearFilter">
+          <option value="all">All years</option>
+        </select>
+        <button id="clearFilters" type="button">Clear</button>
+      </div>
+    </section>
+
+    <section class="stats" aria-live="polite">
+      <span id="resultCount">0 tweets</span>
+      <span id="mediaCount">0 media files</span>
+    </section>
+
+    <section id="timeline" class="timeline" aria-label="Tweet timeline"></section>
+    <div id="sentinel" class="sentinel" aria-hidden="true"></div>
+  </main>
+
+  <template id="tweetTemplate">
+    <article class="tweet">
+      <div class="tweet-head">
+        <div>
+          <a class="tweet-date" rel="noopener noreferrer"></a>
+          <p class="tweet-id"></p>
+        </div>
+        <a class="tweet-open" rel="noopener noreferrer">Open on X</a>
+      </div>
+      <p class="tweet-text"></p>
+      <div class="tweet-media"></div>
+      <div class="tweet-links"></div>
+      <div class="tweet-metrics"></div>
+      <details class="tweet-extra">
+        <summary>Read more</summary>
+        <div class="tweet-extra-body"></div>
+      </details>
+    </article>
+  </template>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
